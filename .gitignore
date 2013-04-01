@@ -36,3 +36,4 @@ nosetests.xml
 
 # Mac Files
 .DS_Store
+.*.swp
