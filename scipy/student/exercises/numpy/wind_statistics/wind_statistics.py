@@ -72,3 +72,15 @@ See :ref:`wind-statistics-solution`.
 
 from numpy import loadtxt
 
+from numpy import amax, amin, mean, std, argmax
+date_array = loadtxt('wind.data', usecols=(0,1,2))
+speed_array = loadtxt('wind.data', usecols=range(3,15))
+
+sol2=(amax(speed_array), amin(speed_array), mean(speed_array), std(speed_array))
+sol3=(amin(speed_array, axis=0), amax(speed_array, axis=0), mean(speed_array, axis=0), std(speed_array, axis=0))
+sol4=(amin(speed_array, axis=1), amax(speed_array, axis=1), mean(speed_array, axis=1), std(speed_array, axis=1))
+sol5=argmax(speed_array, axis=1)
+sol6=date_array[argmax(amax(speed_array, axis=1)), :]
+
+jan_mask=date_array[:, 1]==1
+sol7=speed_array[jan_mask, :].mean(axis=0)
