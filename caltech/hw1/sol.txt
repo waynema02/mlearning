@@ -1,0 +1,5 @@
+4. it means the in 10 marbles, there is NO red, all of them are green. So:
+P=P(green)^10=0.45^10=3.405e0-4
+
+5. 1000 samples, each sample contains 10 marbels
+P=1-(1-P(ν=0))^1000=1-(1-0.45^10)^1000=0.2886
