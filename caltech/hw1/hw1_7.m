@@ -25,7 +25,7 @@ disp(target');
 
 
 % PLA
-N=10;
+N=100;
 
 % generate random data points
 xdata = [ones(1,N); (rand(2,N)-0.5)*2];
