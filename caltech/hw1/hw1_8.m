@@ -2,7 +2,7 @@
 
 % generate random target function
 
-iter=1000
+iter=1
 loop_P=zeros(1,iter);
 for j=1:iter
     
@@ -47,6 +47,14 @@ NN = 2000;
 xtest = [ones(1,NN); (rand(2,NN)-0.5)*2];
 ytest = target_func(xtest, target);
 yhypo = hypothesis(xtest, w);
+plot(xtest(2,find(ytest==1)), xtest(3,find(ytest==1)), 'b*', xtest(2, find(ytest==-1)), xtest(3, find(ytest==-1)), 'b^');
+hold on;
+plot(xtest(2,find(yhypo==1)), xtest(3,find(yhypo==1)), 'r*', xtest(2, find(yhypo==-1)), xtest(3, find(yhypo==-1)), 'r^');
+    xp1 = linspace(-1,1,101);
+    xp2 = -(1/w(3))*[ones(1,101);xp1]'*w(1:2);
+    xtarg = -(1/target(3))*[ones(1,101);xp1]'*target(1:2);
+    plot(xp1, xp2, 'c-s', xp1, xtarg, 'g-d');
+
 diff = ytest ~= yhypo;
 Pdiff = sum(diff)/NN;
 disp(sprintf('Probability is %f', Pdiff));
