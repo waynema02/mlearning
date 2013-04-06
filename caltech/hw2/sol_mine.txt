@@ -2,4 +2,13 @@ hw2 solution ( mine):
 2013-04-06 11:27:54
 
 
+1. my run gives 0.0377.
+	(b)
+
+2. average for c1/crand is almost equal to 0.5, and µ=0.5,
+ thus they track µ, and thus they obey the Hoeffding's Inequality.
+	(d)
+?What about cmin??? It should satisfy SOME law..
+cmin is what we are LOOK_FOR. It is the hypothesis that has least error.
+However, it turns out it is NOT satisfying Hoeffdnig!
 
