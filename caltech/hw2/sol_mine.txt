@@ -12,3 +12,6 @@ hw2 solution ( mine):
 cmin is what we are LOOK_FOR. It is the hypothesis that has least error.
 However, it turns out it is NOT satisfying Hoeffdnig!
 
+#2013-04-06 13:08:56
+
+
