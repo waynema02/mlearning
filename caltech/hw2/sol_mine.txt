@@ -14,4 +14,33 @@ However, it turns out it is NOT satisfying Hoeffdnig!
 
 #2013-04-06 13:08:56
 
+Notes added to problem 1:
+Every single fair coin is a bin; Each of them has an UNKNOWN target function: µ, which is the probability 
+of getting head.
 
+With each bin, we have a sample of 10 flips, which means we flip it 10 times, and get 10
+results for each bin(each fair coin).
+With this 10 flips, we have an observation: ν = (#ofHeads / 10).
+
+So we have 1000 ν's, each corresponding to one coin.
+
+Problem: which ν is closed to the µ?
+
+
+Notes added to problem 2:
+Actually, Hoeffding's Inequality only applies to ONE bin, so only c1 satisfies.
+crand must be a happy coincident.
+	(a)
+
+#2013-04-06 13:18:06
+3. The error for h approximating y is:
+P(h(x)≠y|x)
+Which can be causing by 2 events, due to "binary function"!:
+	event 1): h(x)=f(x), but f(x)≠y
+	event 2): h(x)≠f(x), but f(x)=y
+So P(h(x)≠y|x) = P(h(x)=f(x)|x) * P(f(x)≠y|x) + P(h(x)≠f(x)|x) * P(f(x)=y|x)
+		=   (1-µ)       *   (1-λ)     +       µ        *     λ
+		=(1-µ)*(1-λ)+µ*λ
+	(e)
+
+#2013-04-06 13:52:21
