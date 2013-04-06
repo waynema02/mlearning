@@ -44,3 +44,14 @@ So P(h(x)≠y|x) = P(h(x)=f(x)|x) * P(f(x)≠y|x) + P(h(x)≠f(x)|x) * P(f(x)=y|
 	(e)
 
 #2013-04-06 13:52:21
+
+4. performance of h: error for h approximating y, probability of that.
+So the preformance of h is P(h(x)=y|x)=1-P(h(x)=y|x)
+=1-µ-λ+2µλ=(2λ-1)µ+λ-1
+∂P/∂µ=2λ-1
+if ∂P/∂µ is always 0, that would mean P is independent of µ!
+So λ=0.5
+	(b)
+
+#2013-04-06 14:00:04
+
