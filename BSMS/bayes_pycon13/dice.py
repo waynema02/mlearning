@@ -19,7 +19,11 @@ class Dice(Suite):
         outcome = data
 
         # TODO: write this method!
-        return 1
+        if outcome > num_sides:
+            res = 0.
+        else:
+            res = 1./num_sides
+        return res
 
 
 def main():
