@@ -34,8 +34,16 @@ class Euro(thinkbayes.Suite):
         hypo: integer value of x, the probability of heads (0-100)
         data: string 'H' or 'T'
         """
-        return 1
+        prob_heads = hypo
+        flip_result = data
 
+        # You have the luxury of Hypothesis IS TRUE
+        # Take it for granted!
+        # What is the probability of 'Head', given the probability of head is 60%!!!!
+        if data == 'H':
+            return x
+        else:
+            return 1-x
 
 
 def main():
