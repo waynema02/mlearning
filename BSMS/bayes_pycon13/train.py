@@ -19,7 +19,10 @@ class Train(thinkbayes.Suite):
         data: integer serial number of the observed train
         """
         # TODO: write this method!
-        return 1
+        if data <= hypo:
+            return 1./hypo
+        else:
+            return 0
 
 
 def main():
