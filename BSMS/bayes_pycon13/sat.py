@@ -154,7 +154,7 @@ class Sat(thinkbayes.Suite):
 
 
 def PmfProbGreater(pmf1, pmf2):
-    """Probability that a value from pmf1 is less than a value from pmf2.
+    """Probability that a value from pmf1 is greater than a value from pmf2.
 
     Args:
         pmf1: Pmf object
@@ -167,7 +167,7 @@ def PmfProbGreater(pmf1, pmf2):
     for v1, p1 in pmf1.Items():
         for v2, p2 in pmf2.Items():
             # fill this in
-            pass
+            total += (v1>v2)*p1*p2
 
     return total
 
