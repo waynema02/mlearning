@@ -35,7 +35,7 @@ crand must be a happy coincident.
 #2013-04-06 13:18:06
 3. The error for h approximating y is:
 P(h(x)≠y|x)
-Which can be causing by 2 events, due to "binary function"!:
+Which can be caused by 2 events, due to "binary function"!:
 	event 1): h(x)=f(x), but f(x)≠y
 	event 2): h(x)≠f(x), but f(x)=y
 So P(h(x)≠y|x) = P(h(x)=f(x)|x) * P(f(x)≠y|x) + P(h(x)≠f(x)|x) * P(f(x)=y|x)
