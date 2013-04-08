@@ -41,17 +41,21 @@ class Euro(thinkbayes.Suite):
         # Take it for granted!
         # What is the probability of 'Head', given the probability of head is 60%!!!!
         if data == 'H':
-            return x
+            return prob_heads/100.
         else:
-            return 1-x
+            return 1-prob_heads/100.
 
 
 def main():
     suite = Euro(range(0, 101))
 
+    #myplot.Pmf(suite)
+    #myplot.Show()
+    
+    for i in range(140): suite.Update('H')
+    for i in range(110): suite.Update('T')
     myplot.Pmf(suite)
     myplot.Show()
-    
 
 if __name__ == '__main__':
     main()
