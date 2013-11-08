@@ -1,1 +1,9 @@
 This is the machine learning course on coursera: ml-003
+
+All programming assignment, from week 2 to week 9
+
+You can also get all the archieves in the following format:
+
+wget http://spark-public.s3.amazonaws.com/ml/exercises/ex4-003.zip
+
+Just change ex4 to: ex[1-8].
