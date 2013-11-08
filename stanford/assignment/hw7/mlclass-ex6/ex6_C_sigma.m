@@ -40,6 +40,9 @@ plotData(X, y);
 model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
 visualizeBoundary(X, y, model);
 
+% save data as MATlab-v6 binary format, otherwise it is as text format.
+%save('-6','ex6_results.mat', ')
+save -6 ex6_results.mat C sigma
+
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-

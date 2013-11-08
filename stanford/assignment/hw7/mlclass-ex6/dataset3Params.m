@@ -55,6 +55,7 @@ error_l,
 C = C_l(indexi),
 sigma = sigma_l(indexj),
 
+save -6 datapram.mat C_l sigma_l indexi indexj C sigma
 % =========================================================================
 
 end
