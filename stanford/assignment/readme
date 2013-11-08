@@ -7,3 +7,6 @@ You can also get all the archieves in the following format:
 wget http://spark-public.s3.amazonaws.com/ml/exercises/ex4-003.zip
 
 Just change ex4 to: ex[1-8].
+
+Special, the ex1 is different, it is using underscore "_", instead of dash "-"
+ex1_001.zip
