@@ -35,27 +35,29 @@ sigma_l = [.01:.005:.2, .2:.1:1 ];
 %C_l = [.01, 10],
 %sigma_l = [.03, 30],
 
-for i = 1:length(C_l),
-	for j = 1:length(sigma_l),
-		C = C_l(i),
-		sigma = sigma_l(j),
-		model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
-		predictions = svmPredict(model, Xval);
-		error_l(i,j) = mean(double(predictions ~= yval))
-		if error_l(i,j) < err,
-			err = error_l(i,j);
-			indexi = i;
-			indexj = j;
-		end
-	end
-end
+%for i = 1:length(C_l),
+	%for j = 1:length(sigma_l),
+		%C = C_l(i),
+		%sigma = sigma_l(j),
+		%model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
+		%predictions = svmPredict(model, Xval);
+		%error_l(i,j) = mean(double(predictions ~= yval))
+		%if error_l(i,j) < err,
+			%err = error_l(i,j);
+			%indexi = i;
+			%indexj = j;
+		%end
+	%end
+%end
 
-error_l,
+%error_l,
 
-C = C_l(indexi),
-sigma = sigma_l(indexj),
+%C = C_l(indexi),
+%sigma = sigma_l(indexj),
 
-save -6 datapram.mat C_l sigma_l indexi indexj C sigma error_l
+%save -6 datapram.mat C_l sigma_l indexi indexj C sigma error_l
+C = 0.200
+sigma = 0.065
 % =========================================================================
 
 end
