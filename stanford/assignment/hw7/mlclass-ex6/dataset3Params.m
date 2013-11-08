@@ -29,8 +29,8 @@ err = 1000000000000;
 indexi = i;
 indexj = j;
 
-C_l = [.001, .003, .01, .1, .3, 1, 3, 10, 30, 100, 300, 1000];
-sigma_l = [.001, .003, .01, .03, .1, .3, 1, 3, 10, 30, 100, 300, 1000];
+C_l = [.1:.1:5, 10, 30];
+sigma_l = [.01:.005:.2, .2:.1:1 ];
 
 %C_l = [.01, 10],
 %sigma_l = [.03, 30],
@@ -55,7 +55,7 @@ error_l,
 C = C_l(indexi),
 sigma = sigma_l(indexj),
 
-save -6 datapram.mat C_l sigma_l indexi indexj C sigma
+save -6 datapram.mat C_l sigma_l indexi indexj C sigma error_l
 % =========================================================================
 
 end
