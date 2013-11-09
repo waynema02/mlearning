@@ -6,7 +6,7 @@ function [J, grad] = costFunction(theta, X, y)
 
 % Initialize some useful values
 m = length(y); % number of training examples
-n = length(theta); % number of features plus one
+n = length(theta) - 1; % number of features, so theta length is n+1
 
 % You need to return the following variables correctly 
 J = 0;
@@ -27,7 +27,7 @@ for i = 1:m
     J = J - 1/m*(y(i)*log(h(i)) + (1-y(i))*log(1-h(i)));
 end
 
-%for j = 1:n
+%for j = 1:n+1
     %grad(j) = 1/m*(h-y)'*X(:,j);
 %end
 
