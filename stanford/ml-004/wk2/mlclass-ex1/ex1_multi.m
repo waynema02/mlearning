@@ -82,7 +82,7 @@ X = [ones(m, 1) X];
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 0.01;
+alpha = 0.03;
 num_iters = 400;
 
 % Init Theta and Run Gradient Descent 
@@ -104,7 +104,12 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
-price = 0; % You should change this
+X_new = [1650 3];
+for i = 1:size(X_new, 2)
+    X_new_norm(:,i) = (X_new(:,i) - mu(i)) / sigma(i);
+end
+X_new_norm = [eye(1,1) X_new_norm],
+price = X_new_norm * theta;
 
 
 % ============================================================
