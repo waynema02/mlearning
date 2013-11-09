@@ -27,12 +27,12 @@ for i = 1:m
     J = J - 1/m*(y(i)*log(h(i)) + (1-y(i))*log(1-h(i)));
 end
 
-for j = 1:n
-    grad(j) = 1/m*(h-y)'*X(:,j);
-end
+%for j = 1:n
+    %grad(j) = 1/m*(h-y)'*X(:,j);
+%end
 
 % vectorized version
-%grad = 1/m*X'*(h-y)
+grad = 1/m*X'*(h-y);
 
 % =============================================================
 
