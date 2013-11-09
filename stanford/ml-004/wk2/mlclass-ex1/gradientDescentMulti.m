@@ -19,7 +19,7 @@ for iter = 1:num_iters
 
     theta_temp = theta;
     theta = theta_temp - alpha * 1/m * X' * (X*theta_temp - y);
-    computeCostMulti(X, y, theta),
+    %computeCostMulti(X, y, theta),
 
     % ============================================================
 
