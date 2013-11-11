@@ -43,3 +43,6 @@ nosetests.xml
 *.m~
 
 ml_login_data.mat
+
+# the file names from mounted samba in mac
+._*
