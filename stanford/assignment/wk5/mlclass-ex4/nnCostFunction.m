@@ -56,11 +56,19 @@ for i = 1:m;
     Y(y(i), i) = 1;
 end
 
+% NON-vectorized version
+%J = 0;
+%for i = 1:m;
+    %for j = 1:num_labels
+        %J = J - 1/m*(Y(j,i)*log(H(j,i)) + (1-Y(j,i))*log(1-H(j,i)));
+    %end
+%end
+
+% vectorize for sample number, not for the num_labels.
 J = 0;
-for i = 1:m;
-    for j = 1:num_labels
-        J = J - 1/m*(Y(j,i)*log(H(j,i)) + (1-Y(j,i))*log(1-H(j,i)));
-    end
+for j = 1:num_labels
+    temp = - 1/m*(Y(j,:)*log(H(j,:)') + (1-Y(j,:))*log(1-H(j,:)'));
+    J = J + temp;
 end
 
 %
