@@ -21,13 +21,33 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% none-vec version, it is working!
+%for i = 1:m
+    %a1 = X(i,:)';
 
+    %z2 = Theta1 * [ones(1,1); a1];
+    %a2 = sigmoid(z2);
 
+    %z3 = Theta2 * [ones(1,1); a2];
+    %a3 = sigmoid(z3);
 
+    %[v, p(i)] = max(a3);
+%end
 
+% fully vectorized version
+a1 = X';
 
+a1 = [ones(1, size(a1,2)); a1];
+z2 = Theta1 * a1;
+a2 = sigmoid(z2);
 
+a2 = [ones(1, size(a2,2)); a2];
+z3 = Theta2 * a2;
+a3 = sigmoid(z3);
 
+h = a3;
+[v, p] = max(h);
+p = p';
 
 % =========================================================================
 
