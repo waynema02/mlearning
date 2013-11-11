@@ -67,6 +67,33 @@ fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
+%% ================= Part 4: Show the wrong Predict =================
+%  Show the wrong prediction.
+%  Visualize them.
+
+pred = predict(Theta1, Theta2, X);
+
+fprintf('\nTraining Set Wrong: %f\n', mean(double(pred != y)) * 100);
+
+wrong_idx = find(pred != y);
+
+fprintf('\nShow the wrong prediction:\n');
+fprintf('\nTotal Number of Wrong: %d\n', sum(pred != y));
+wrong_idx',
+
+for i = 1:length(wrong_idx)
+    displayData(X(wrong_idx(i), :));
+
+    pred = predict(Theta1, Theta2, X(wrong_idx(i), :));
+    fprintf('\nNeural Network Wrong Prediction: %d (digit %d)', pred, mod(pred, 10));
+    fprintf('\nCorrect Label: %d (digit %d)\n', y(wrong_idx(i)), mod(y(wrong_idx(i)), 10));
+
+    % Pause
+    fprintf('Program paused. Press enter to continue.\n');
+    pause;
+end
+%================================================================================
+
 %  To give you an idea of the network's output, you can also run
 %  through the examples one at the a time to see what it is predicting.
 
