@@ -65,11 +65,15 @@ end
 %end
 
 % vectorize for sample number, not for the num_labels.
-J = 0;
-for j = 1:num_labels
-    temp = - 1/m*(Y(j,:)*log(H(j,:)') + (1-Y(j,:))*log(1-H(j,:)'));
-    J = J + temp;
-end
+%J = 0;
+%for j = 1:num_labels
+    %temp = - 1/m*(Y(j,:)*log(H(j,:)') + (1-Y(j,:))*log(1-H(j,:)'));
+    %J = J + temp;
+%end
+
+% fully vectorize:
+% basically, J is the fully-inner-product of matrix H and Y.
+J = -1/m*sum(sum(Y.*log(H) + (1-Y).*(log(1-H))));
 
 %
 % Part 2: Implement the backpropagation algorithm to compute the gradients
