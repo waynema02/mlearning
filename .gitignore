@@ -36,6 +36,7 @@ nosetests.xml
 
 # Mac Files
 .DS_Store
+.*.DS_Store
 .*.swp
 
 # matlab files
