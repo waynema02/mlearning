@@ -38,6 +38,31 @@ Theta2_grad = zeros(size(Theta2));
 %         variable J. After implementing Part 1, you can verify that your
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
+
+a1 = X';
+
+z2 = Theta1 * [ones(1, size(a1, 2)); a1];
+a2 = sigmoid(z2);
+
+z3 = Theta2 * [ones(1, size(a2, 2)); a2];
+a3 = sigmoid(z3);
+
+H = a3;
+
+% map the result vector to label matrix: 5 -> [0,0,0,0,1,0,0,0,0,0]';
+% each column is a vector of the label result, the none-zero index indicates the class.
+Y = zeros(num_labels, m);
+for i = 1:m;
+    Y(y(i), i) = 1;
+end
+
+J = 0;
+for i = 1:m;
+    for j = 1:num_labels
+        J = J - 1/m*(Y(j,i)*log(H(j,i)) + (1-Y(j,i))*log(1-H(j,i)));
+    end
+end
+
 %
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
