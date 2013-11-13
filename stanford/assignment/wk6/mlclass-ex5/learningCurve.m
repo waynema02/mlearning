@@ -50,14 +50,20 @@ error_val   = zeros(m, 1);
 %           
 %       end
 %
+nv = length(yval);
+for i =1:m
+    x_t = X(1:i,:);
+    y_t = y(1:i);
+    theta_t = trainLinearReg(x_t, y_t, lambda);
 
-% ---------------------- Sample Solution ----------------------
+    h_t = x_t * theta_t;
+    e_t = h_t - y_t;
+    error_train(i) = 1/2/i*e_t'*e_t;
 
-
-
-
-
-
+    h_v = Xval * theta_t;
+    e_v = h_v - yval;
+    error_val(i) = 1/2/nv*e_v'*e_v;
+end
 
 % -------------------------------------------------------------
 
