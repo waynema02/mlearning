@@ -95,15 +95,17 @@ J = J + lambda/2/m*(    sum(sum(Theta1(:,2:end).^2)) + ...
 %         Hint: We recommend implementing backpropagation using a for-loop
 %               over the training examples if you are implementing it for the 
 %               first time.
-Delta1 = zeros(size(Theta1(:,2:end)));
-Delta2 = zeros(size(Theta2(:,2:end)));
+Delta1 = zeros(size(Theta1));
+Delta2 = zeros(size(Theta2));
 for i = 1:m
     a1 = X(i,:)';
 
-    z2 = Theta1 * [ones(1, size(a1,2)); a1];
+    a1 = [ones(1, size(a1,2)); a1];
+    z2 = Theta1 * a1;
     a2 = sigmoid(z2);
 
-    z3 = Theta2 * [ones(1, size(a2,2)); a2];
+    a2 = [ones(1, size(a2,2)); a2];
+    z3 = Theta2 * a2;
     a3 = sigmoid(z3);
 
     h = a3;
