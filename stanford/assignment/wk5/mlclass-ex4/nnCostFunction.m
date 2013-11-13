@@ -95,6 +95,39 @@ J = J + lambda/2/m*(    sum(sum(Theta1(:,2:end).^2)) + ...
 %         Hint: We recommend implementing backpropagation using a for-loop
 %               over the training examples if you are implementing it for the 
 %               first time.
+Delta1 = zeros(size(Theta1(:,2:end)));
+Delta2 = zeros(size(Theta2(:,2:end)));
+for i = 1:m
+    a1 = X(i,:)';
+
+    z2 = Theta1 * [ones(1, size(a1,2)); a1];
+    a2 = sigmoid(z2);
+
+    z3 = Theta2 * [ones(1, size(a2,2)); a2];
+    a3 = sigmoid(z3);
+
+    h = a3;
+    y = Y(:,i);
+
+    delta3 = h - y;
+
+    % This is for debug purpose.
+    size(Theta2)
+    size(delta3)
+    size(z2)
+
+    delta2 = Theta2(:, 2:end)' * delta3 .* sigmoidGradient(z2);
+    %delta2 = delta2(2:end);
+
+    Delta2 = Delta2 + delta3 * a2';
+    Delta1 = Delta1 + delta2 * a1';
+end
+
+Theta1_grad = 1/m*Delta1;
+Theta2_grad = 1/m*Delta2;
+
+
+
 %
 % Part 3: Implement regularization with the cost function and gradients.
 %
