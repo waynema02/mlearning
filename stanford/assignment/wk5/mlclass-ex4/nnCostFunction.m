@@ -112,9 +112,9 @@ for i = 1:m
     delta3 = h - y;
 
     % This is for debug purpose.
-    size(Theta2)
-    size(delta3)
-    size(z2)
+    %size(Theta2)
+    %size(delta3)
+    %size(z2)
 
     delta2 = Theta2(:, 2:end)' * delta3 .* sigmoidGradient(z2);
     %delta2 = delta2(2:end);
