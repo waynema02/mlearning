@@ -40,13 +40,13 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
-for i = 1:num_movies
-    for j = 1:num_users
-        if R(i, j) == 1
-            J = J + 1/2*(X(i,:)*Theta(j,:)' - Y(i,j))^2;
-        end
-    end
-end
+%for i = 1:num_movies
+    %for j = 1:num_users
+        %if R(i, j)
+            %J = J + 1/2*(X(i,:)*Theta(j,:)' - Y(i,j))^2;
+        %end
+    %end
+%end
 
 % Vectorize cost function.
 P = X * Theta';                 % get prediction result
@@ -59,8 +59,8 @@ J = 1/2*sum(sum(Error.^2));     % get sum-of-square
 for k = 1:num_features
     for i = 1:num_movies
         for j = 1:num_users
-            if R(i, j) == 1
-                X_grad(i, k) = X_grad(i, k) + (X(i, :)*Theta(j,:)' - Y(i,j)) * X(i,k);
+            if R(i, j)
+                X_grad(i, k) = X_grad(i, k) + (X(i, :)*Theta(j,:)' - Y(i,j)) * Theta(j,k);
             end
         end
         % regularize gradient
@@ -71,8 +71,8 @@ end
 for k = 1:num_features
     for i = 1:num_movies
         for j = 1:num_users
-            if R(i, j) == 1
-                Theta_grad(j, k) = Theta_grad(j, k) + (X(i, :)*Theta(j,:)' - Y(i,j)) * Theta(j,k);
+            if (R(i, j) == 1)
+                Theta_grad(j, k) = Theta_grad(j, k) + (X(i, :)*Theta(j,:)' - Y(i,j)) * X(i,k);
             end
         end
         % regularize gradient
