@@ -40,18 +40,45 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
+for i = 1:num_movies
+    for j = 1:num_users
+        if R(i, j) == 1
+            J = J + 1/2*(X(i,:)*Theta(j,:)' - Y(i,j))^2;
+        end
+    end
+end
 
+% Vectorize cost function.
+P = X * Theta';                 % get prediction result
+Error = (P - Y) .* R;           % mask out the "unrated" items
+J = 1/2*sum(sum(Error.^2));     % get sum-of-square
 
+% regularize cost function
+%J = J + lambda/2 * sum(sum(X.^2)) + lambda/2 * sum(sum(Theta.^2));
 
+for k = 1:num_features
+    for i = 1:num_movies
+        for j = 1:num_users
+            if R(i, j) == 1
+                X_grad(i, k) = X_grad(i, k) + (X(i, :)*Theta(j,:)' - Y(i,j)) * X(i,k);
+            end
+        end
+        % regularize gradient
+        %X_grad(i, k) = X_grad(i, k) + lambda*X(i,k);
+    end
+end
 
-
-
-
-
-
-
-
-
+for k = 1:num_features
+    for i = 1:num_movies
+        for j = 1:num_users
+            if R(i, j) == 1
+                Theta_grad(j, k) = Theta_grad(j, k) + (X(i, :)*Theta(j,:)' - Y(i,j)) * Theta(j,k);
+            end
+        end
+        % regularize gradient
+        %Theta_grad(i, k) = Theta_grad(i, k) + lambda*Theta(i,k);
+    end
+end
 
 
 
